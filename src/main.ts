@@ -1,6 +1,6 @@
 import App from '@/App.vue';
 import '@/main.css';
-import router from '@/router';
+import { router } from '@/router';
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue';
 import Aura from '@primevue/themes/aura';
 import { createPinia } from 'pinia';

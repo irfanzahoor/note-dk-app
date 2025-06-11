@@ -1,6 +1,7 @@
 // electron/preload.js
-import { contextBridge, ipcRenderer } from 'electron';
+const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld('electronAPI', {
-  resizeWindow: (width, height) => ipcRenderer.invoke('resize-window', width, height)
+contextBridge.exposeInMainWorld('api', {
+  send: (channel, data) => ipcRenderer.send(channel, data),
+  on: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args)),
 });

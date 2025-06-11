@@ -24,6 +24,7 @@ export default defineConfig({
         'favicon.ico',
         'robots.txt',
         'apple-touch-icon.png',
+        'icon.png',
       ],
       manifest: {
         name: 'Notes',

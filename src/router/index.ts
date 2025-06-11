@@ -1,33 +1,36 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: () => import('../views/HomeView.vue')
-    },
-    {
-      path: '/note',
-      name: 'new-note',
-      component: () => import('../views/NoteView.vue'),
-      children: [
-        {
-          path: '/:id',
-          name: 'note',
-          component: () => import('../views/NoteView.vue')
-        }
-      ]
-    },
-    {
-      path: '/settings',
-      name: 'settings',
-      component: () => import('../views/SettingsView.vue')
-    }
-  ]
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('../views/HomeView.vue')
+  },
+  {
+    path: '/note',
+    name: 'new-note',
+    component: () => import('../views/NoteView.vue'),
+    children: [
+      {
+        path: ':id', // ✅ remove leading slash for nested route
+        name: 'note',
+        component: () => import('../views/NoteView.vue')
+      }
+    ]
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: () => import('../views/SettingsView.vue')
+  }
+];
+
+export const router = createRouter({
+  history: createWebHashHistory(), // ✅ Use hash history for Electron compatibility
+  routes
 });
 
-router.beforeEach(async (to, from) => {});
-
-export default router;
+// Optional navigation guard
+router.beforeEach(async (to, from) => {
+  // logic here if needed
+});

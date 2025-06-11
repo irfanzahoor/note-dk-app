@@ -9,7 +9,7 @@ let tray = null;
 let mainWindow = null;
 
 function createWindow() {
-  const iconPath = join(__dirname, '..', 'dist', 'apple-touch-icon.png');
+  const iconPath = join(__dirname, '..', 'dist', 'icon.png');
 
   const win = new BrowserWindow({
     width: 1024,
@@ -27,7 +27,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  const iconPath = join(__dirname, '..', 'dist', 'apple-touch-icon.png');
+  const iconPath = join(__dirname, '..', 'dist', 'icon.png');
 
   tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([

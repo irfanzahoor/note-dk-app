@@ -60,7 +60,7 @@
     "productName": "PWA Notes Desktop",
     "files": [
       "dist/**/*",
-      "electron/main.mjs",
+      "electron/**/*",
       "assets/**"
     ],
     "directories": {
@@ -73,7 +73,7 @@
       "icon": "dist/icon.icns"
     },
     "linux": {
-      "icon": "dist/apple-touch-icon.png"
+      "icon": "dist/icon.png"
     }
   }
 }

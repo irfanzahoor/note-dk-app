@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { db } from '@/db/dexie';
 import { Note } from '@/models/Note';
-import router from '@/router';
+import { router } from '@/router';
 import { useStore } from '@/store/store';
 import { liveQuery } from 'dexie';
 import Button from 'primevue/button';
